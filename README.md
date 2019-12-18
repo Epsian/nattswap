@@ -25,6 +25,7 @@ devtools::install_github("epsian/nattswap")
 
 * Add Z score code significance tests code
 * add examples to help files
+* fix code to remove warings about network's "%V%"
 
 ## Attribution
 
