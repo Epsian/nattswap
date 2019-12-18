@@ -1,0 +1,17 @@
+Package: nattswap
+Type: Package
+Title: Generate Simulated Networks With Swapped Attributes
+Version: 0.0.1
+Author: Jared Joseph (@Epsian)
+Maintainer: Jared Joseph <jnjoseph@ucdavis.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+  statnet,
+  network,
+  sna,
+  parallel
+RoxygenNote: 6.1.1
