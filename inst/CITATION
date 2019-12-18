@@ -1,0 +1,10 @@
+citHeader("To cite nattswap in publications use:")
+
+bibentry(bibtype = "Unpublished",
+  title        = "{nattswap}",
+  textVersion  = NULL,
+  author       = personList(as.person("Jared Joseph")),
+  doi          = "placeholder",
+  year         = "2019",
+  note         = "Work in Progress"
+)
