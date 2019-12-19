@@ -51,15 +51,15 @@ run_att_swap_sims = function(net_to_swap, attribute, swaps = 10000, sims = 50, c
     for(coln in network::list.vertex.attributes(single_sim)){sim_df[coln] = single_sim%v%coln}
 
     # status message
-    print(paste0("---------- Simulation #", sim, " done!"))
+    if(verbose == TRUE){print(paste0("---------- Simulation #", sim, " done!"))}
 
     return(sim_df)
   })
 
   # make output list
   out = list(net_df, sim_dfs)
-  names(out) = c("original_net", "simulations")
   attributes(out) = list("att_swap_sims_result" = TRUE)
+  # names(out) = c("original_net", "simulations") Dosen't save names if run as part of package for some reason
   print("-------------------- Finished!")
 
   return(out)
