@@ -15,17 +15,17 @@ combine_net_att_sims = function(..., swapped_attribute){
   dot_list = list(...)
 
   # test they are a simulation return
-  if(all(sapply(dot_list, attr, "att_swap_sims_result"))){stop("Input objects are not outputs of run_att_swap!")}
+  if(!all(sapply(dot_list, attr, "att_swap_sims_result"))){stop("Input objects are not outputs of run_att_swap!")}
 
   # get the original networks and test for equivilance
-  orig = lapply(dot_list, FUN = function(siml){siml[["original_net"]]})
-  if(all(sapply(orig, identical, orig[[1]]))){stop("Not all 'original_net' networks are identical!")}
+  orig = lapply(dot_list, FUN = function(siml){siml[[1]]})
+  if(!all(sapply(orig, identical, orig[[1]]))){stop("Not all original networks are identical!")}
 
   # save one original
   orig = orig[[1]]
 
   # combine simulation networks
-  tsims = unlist(lapply(dot_list, FUN = function(x){x[["simulations"]]}), recursive = FALSE)
+  tsims = unlist(lapply(dot_list, FUN = function(x){x[[2]]}), recursive = FALSE)
 
   # make output df
   sim_df = orig
@@ -36,7 +36,7 @@ combine_net_att_sims = function(..., swapped_attribute){
   })
 
   # add column names
-  colnames(att_matrix) = paste0("sim_", 1:length(tsims))
+  colnames(att_matrix) = paste0("sim_", 1:length(tsims), "_", swapped_attribute)
 
   # combine with original stats
   sim_df = cbind(sim_df, att_matrix)
