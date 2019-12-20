@@ -1,13 +1,12 @@
 # nattswap
 
-[![DOI](https://zenodo.org/badge/228912484.svg)](https://zenodo.org/badge/latestdoi/228912484)
-
 ## Overview
 
-nattswap is a small package designed to create network simulations in R which randomly swap an attribute of the network, and test for significance. It has one main function, and a helper function.
+nattswap is a small package designed to create network simulations in R which randomly swap an attribute of the network, and test for significance. It has three main functions.
 
 * `run_att_swap_sims()` will take in a `network` object, and run the simulations. It can save the simulations it creates if you want them.
-* `combine_net_att_sims()` can be used if you created you networks in multiple backes for speed or time purposes.
+* `combine_net_att_sims()` will reformat the results of `run_att_swap_sims()`, and combine the results of multiple if you did not run all simulations at once.
+* `get_att_swap_sig()` will report the difference between the real and simulated networks.
 
 ## Installation
 
@@ -27,7 +26,7 @@ devtools::install_github("epsian/nattswap")
 
 * Add Z score code significance tests code
 * add examples to help files
-* fix code to remove warings about network's "%V%"
+* fix code to remove warnings about network's "%V%"
 
 ## Attribution
 
