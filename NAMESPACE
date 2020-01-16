@@ -2,6 +2,7 @@
 
 export(combine_net_att_sims)
 export(get_att_swap_sig)
+export(nattswap_compare)
 export(nattswap_means)
 export(nattswap_transform)
 export(nattswap_z)
