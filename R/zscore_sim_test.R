@@ -29,10 +29,10 @@ nattswap_z = function(means_table, swapped_att) {
   # Answer will be positive or negative and within +/-  Standard Deviations above or below the mean
 
   # Z Scores
-  out_list["z_degree"] = (mean(comb[comb[, swapped_att] == TRUE, "degree"])) - mean(means_table$degree_mean_true) / sd(means_table$degree_mean_true)
-  out_list["z_evc"] = (mean(comb[comb[, swapped_att] == TRUE, "evc"])) - mean(means_table$evc_mean_true) / sd(means_table$evc_mean_true)
-  out_list["z_n_bet"] = (mean(comb[comb[, swapped_att] == TRUE, "norm_betweenness"])) - mean(means_table$n_bet_mean_true) / sd(means_table$n_bet_mean_true)
-  out_list["z_closeness"] = (mean(comb[comb[, swapped_att] == TRUE, "closeness"])) - mean(means_table$closeness_mean_true) / sd(means_table$closeness_mean_true)
+  out_list["z_degree"] = (mean(comb[comb[, swapped_att] == TRUE, "degree"]) - mean(means_table$degree_mean_true)) / sd(means_table$degree_mean_true)
+  out_list["z_evc"] = (mean(comb[comb[, swapped_att] == TRUE, "evc"]) - mean(means_table$evc_mean_true)) / sd(means_table$evc_mean_true)
+  out_list["z_n_bet"] = (mean(comb[comb[, swapped_att] == TRUE, "norm_betweenness"]) - mean(means_table$n_bet_mean_true)) / sd(means_table$n_bet_mean_true)
+  out_list["z_closeness"] = (mean(comb[comb[, swapped_att] == TRUE, "closeness"]) - mean(means_table$closeness_mean_true)) / sd(means_table$closeness_mean_true)
 
   return(new("nattswap_z", out_list))
 }
