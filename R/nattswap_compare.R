@@ -15,26 +15,26 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
   # if one specific metric is requested
   if(metric_name != "all"){
     # parse what metric is being plotted
-    if(metric_name == "degree"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_degree"]]; p_x = "Mean Degree"; m_title = "Simulated vs. Actual Mean Degree"; metric_colname = "degree_mean_true"}
-    if(metric_name == "evc"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_evc"]]; p_x = "Mean Eigenvector Centrality"; m_title = "Simulated vs. Actual Mean EVC"; metric_colname = "evc_mean_true"}
-    if(metric_name == "n_bet"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_n_bet"]]; p_x = "Mean Normalized Betweenness"; m_title = "Simulated vs. Actual Mean Norm. Betweenness"; metric_colname = "n_bet_mean_true"}
-    if(metric_name == "closeness"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_closeness"]]; p_x = "Mean Closeness"; m_title = "Simulated vs. Actual Mean Closeness"; metric_colname = "closeness_mean_true"}
+    if(metric_name == "degree"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_degree"]]; p_x = "Mean Degree"; m_title = "Simulated vs. Actual Mean Degree"; metric_colname = "degree_mean_true"; zscore = get_att_swap_sig_results[["sig"]][["z-report"]][["z_degree"]]}
+    if(metric_name == "evc"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_evc"]]; p_x = "Mean Eigenvector Centrality"; m_title = "Simulated vs. Actual Mean EVC"; metric_colname = "evc_mean_true"; zscore = get_att_swap_sig_results[["sig"]][["z-report"]][["z_evc"]]}
+    if(metric_name == "n_bet"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_n_bet"]]; p_x = "Mean Normalized Betweenness"; m_title = "Simulated vs. Actual Mean Norm. Betweenness"; metric_colname = "n_bet_mean_true"; zscore = get_att_swap_sig_results[["sig"]][["z-report"]][["z_n_bet"]]}
+    if(metric_name == "closeness"){x_int = get_att_swap_sig_results[["sig"]][["z-report"]][["r_closeness"]]; p_x = "Mean Closeness"; m_title = "Simulated vs. Actual Mean Closeness"; metric_colname = "closeness_mean_true"; zscore = get_att_swap_sig_results[["sig"]][["z-report"]][["z_closeness"]]}
 
     # plot
-    out_plot = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, metric_colname])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=x_int)), color="black", linetype="dashed", size=1) + labs (x = p_x, y = "Frequency") + ggtitle(paste0(m_title, " for ", swapped_att, " == TRUE"))
+    out_plot = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, metric_colname])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=x_int)), color="black", linetype="dashed", size=1) + labs (x = p_x, y = "Frequency") + ggtitle(paste0(m_title, " for ", swapped_att, " == TRUE")) + ggplot2::labs(caption = paste0("Z-Score = ", zscore))
 
     return(out_plot)
   }
 
   out_plot = gridExtra::grid.arrange(
 
-    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "degree_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_degree"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Degree", y = "Frequency"),
+    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "degree_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_degree"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Degree", y = "Frequency") + ggplot2::labs(caption = paste0("Z-Score = ", get_att_swap_sig_results[["sig"]][["z-report"]][["z_degree"]])),
 
-    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "evc_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_evc"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Eigenvector Centrality", y = "Frequency"),
+    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "evc_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_evc"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Eigenvector Centrality", y = "Frequency") + ggplot2::labs(caption = paste0("Z-Score = ", get_att_swap_sig_results[["sig"]][["z-report"]][["z_evc"]])),
 
-    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "n_bet_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_n_bet"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Normalized Betweenness", y = "Frequency"),
+    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "n_bet_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_n_bet"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Normalized Betweenness", y = "Frequency") + ggplot2::labs(caption = paste0("Z-Score = ", get_att_swap_sig_results[["sig"]][["z-report"]][["z_n_bet"]])),
 
-    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "closeness_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_closeness"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Closeness", y = "Frequency"),
+    ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["sig"]][["means"]][, "closeness_mean_true"])) + geom_histogram(color="black", fill="white", bins = 50) + geom_vline((aes(xintercept=get_att_swap_sig_results[["sig"]][["z-report"]][["r_closeness"]])), color="black", linetype="dashed", size=1) + labs (x = "Mean Closeness", y = "Frequency") + ggplot2::labs(caption = paste0("Z-Score = ", get_att_swap_sig_results[["sig"]][["z-report"]][["z_closeness"]])),
 
     nrow = all_nrow, ncol = all_ncol, top = paste0("Simulated vs. Observed for ", swapped_att)
 
