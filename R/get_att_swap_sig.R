@@ -13,8 +13,8 @@ get_att_swap_sig = function(combined_att_swaps, swapped_att){
 
   long = nattswap_transform(combined_att_swaps)
   means = nattswap_means(long)
-  nattswap_z(means, swapped_att)
+  nattswap_z(combined_att_swaps, means, swapped_att)
 
-  out_final = list("means" = means, "z-report" = nattswap_z(means, swapped_att))
+  out_final = list("means" = means, "z-report" = nattswap_z(combined_att_swaps, means, swapped_att))
   return(out_final)
 }
