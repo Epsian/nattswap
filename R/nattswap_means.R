@@ -22,6 +22,8 @@ nattswap_means = function(nattswap_long) {
     "degree_sd_false" = NA,
     "evc_mean_false" = NA,
     "evc_sd_false" = NA,
+    "bet_mean_false" = NA,
+    "bet_sd_false" = NA,
     "n_bet_mean_false" = NA,
     "n_bet_sd_false" = NA,
     "closeness_mean_false" = NA,
@@ -60,6 +62,20 @@ nattswap_means = function(nattswap_long) {
 
     # get evc sd for only swapped_att == FALSE
     means_table[means_table$sim_num == sim, "evc_sd_false"] = sd(.working[.working[, ncol(.working)] == FALSE, "evc"])
+
+    ## betweenness
+
+    # get norm_betweenness mean for only swapped_att == TRUE
+    means_table[means_table$sim_num == sim, "bet_mean_true"] = mean(.working[.working[, ncol(.working)] == TRUE, "betweenness"])
+
+    # get norm_betweenness mean for only swapped_att == FALSE
+    means_table[means_table$sim_num == sim, "bet_mean_false"] = mean(.working[.working[, ncol(.working)] == FALSE, "betweenness"])
+
+    # get norm_betweenness sd for only swapped_att == TRUE
+    means_table[means_table$sim_num == sim, "bet_sd_true"] = sd(.working[.working[, ncol(.working)] == TRUE, "betweenness"])
+
+    # get norm_betweenness sd for only swapped_att == FALSE
+    means_table[means_table$sim_num == sim, "bet_sd_false"] = sd(.working[.working[, ncol(.working)] == FALSE, "betweenness"])
 
     ## norm_betweenness
 
