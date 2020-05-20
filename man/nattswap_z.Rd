@@ -4,12 +4,14 @@
 \alias{nattswap_z}
 \title{nattswap_z}
 \usage{
-nattswap_z(means_table, swapped_att)
+nattswap_z(combined_att_swaps, means_table, swapped_att)
 }
 \arguments{
 \item{means_table}{Result of \code{nattswap_means}}
 
 \item{swapped_att}{Character. Name of attribute swapped in \code{run_att_swap_sims}.}
+
+\item{combined_net_att_tableined_net_att_table}{Result of \code{combined_net_att_tableine_net_att_sims}}
 }
 \value{
 A printout of results.

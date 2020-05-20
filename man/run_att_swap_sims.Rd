@@ -4,9 +4,16 @@
 \alias{run_att_swap_sims}
 \title{run_att_swap_sims}
 \usage{
-run_att_swap_sims(net_to_swap, attribute, swaps = 10000, sims = 50,
-  cores = 1L, save_preface = NA, save_dir = "./network_sims",
-  verbose = FALSE)
+run_att_swap_sims(
+  net_to_swap,
+  attribute,
+  swaps = 10000,
+  sims = 50,
+  cores = 1L,
+  save_preface = NA,
+  save_dir = "./network_sims",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{net_to_swap}{An object of type \code{network}. Passed to \code{net_att_swap}.}

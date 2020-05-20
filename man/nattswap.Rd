@@ -3,7 +3,6 @@
 \docType{package}
 \name{nattswap}
 \alias{nattswap}
-\alias{nattswap-package}
 \title{nattswap: A package for swapping network attributes to test if they are random.}
 \description{
 The foo package provides three categories of important functions:
