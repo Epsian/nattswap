@@ -1,5 +1,7 @@
 # nattswap
 
+[![DOI](https://zenodo.org/badge/228912484.svg)](https://zenodo.org/badge/latestdoi/228912484)
+
 ## Overview
 
 nattswap is a small package designed to create network simulations in R which randomly swap an attribute of the network, and test for significance. It has three main functions.
