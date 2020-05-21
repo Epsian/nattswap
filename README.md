@@ -4,12 +4,17 @@
 
 ## Overview
 
-nattswap is a small package designed to create network simulations in R which randomly swap an attribute of the network, and test for significance. It has three main functions.
+nattswap is a small package designed to create network simulations in R which randomly swap attributes or edges in a network. It has two main groups of functions, one for atributes and the other for edges.
+
+### Attributes
 
 * `run_att_swap_sims()` will take in a `network` object, and run the simulations. It can save the simulations it creates if you want them.
 * `combine_net_att_sims()` will reformat the results of `run_att_swap_sims()`, and combine the results of multiple if you did not run all simulations at once. Because `swapped_attribute` comes after ... in this function, **it must be explicitly defined**.
 * `get_att_swap_sig()` will report the difference between the real and simulated networks.
 * `nattswap_compare()` will plot the results and show how the actual means of network metrics compare to simulations.
+
+### Edges
+
 * `edge_swap()` will take a `network` object, and randomly "re-wire" the edges, swapping edge pairs.
 
 ## Installation
