@@ -16,13 +16,13 @@ nattswap_compare(
 \arguments{
 \item{get_att_swap_sig_results}{Result of \code{get_att_swap_sig}}
 
-\item{metric_name}{Character. Either "degree", "evc", "bet", "n_bet", or "closeness". Defualts to "all" which will display all metrics.}
+\item{metric_name}{Character. A vector of "degree", "evc", "bet", "n_bet", or "closeness". Defualts to "all" which will display all metrics.}
 
 \item{swapped_att}{Character. Name of swapped attribute.}
 
-\item{all_nrow}{Only if \code{metric_name == "all}. How many rows do you want the plot to have?}
+\item{all_nrow}{How many rows do you want the plot to have?}
 
-\item{all_ncol}{Only if \code{metric_name == "all}. How many columns do you want the plot to have?}
+\item{all_ncol}{How many columns do you want the plot to have?}
 
 \item{font_family}{Font family to use in plots.}
 }
