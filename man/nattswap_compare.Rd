@@ -10,7 +10,8 @@ nattswap_compare(
   swapped_att,
   all_nrow = 1,
   all_ncol = NULL,
-  font_family = NULL
+  font_family = NULL,
+  yaxis = c(NA, NA)
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ nattswap_compare(
 \item{all_ncol}{How many columns do you want the plot to have?}
 
 \item{font_family}{Font family to use in plots.}
+
+\item{yaxis}{Vector of 2 integers. Lower and upper limit of y axis.}
 }
 \value{
 A ggplot2 plot showing real vs simulated means
