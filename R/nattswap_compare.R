@@ -63,6 +63,24 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       ggplot2::theme(text=element_text(family= font_family))
   }
 
+  if("max_cohesion" %in% metric_name | "all" %in% metric_name){
+    plot_list[["max_cohesion"]] = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["means"]][, "max_cohesion_mean_true"])) +
+      geom_histogram(color="black", fill="white", bins = 50) +
+      geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_max_cohesion"]])), color="black", linetype="dashed", size=1) +
+      labs (x = "Mean Max Cohesion", y = "Frequency") +
+      ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_max_cohesion"]], digits = 3))) +
+      ggplot2::theme(text=element_text(family= font_family))
+  }
+
+  if("nestedness" %in% metric_name | "all" %in% metric_name){
+    plot_list[["nestedness"]] = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["means"]][, "nestedness_mean_true"])) +
+      geom_histogram(color="black", fill="white", bins = 50) +
+      geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_nestedness"]])), color="black", linetype="dashed", size=1) +
+      labs (x = "Mean Nestedness", y = "Frequency") +
+      ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_nestedness"]], digits = 3))) +
+      ggplot2::theme(text=element_text(family= font_family))
+  }
+
   if(!all(is.na(yaxis))){
     plot_list = lapply(plot_list, function(iplot){
       iplot = iplot + ggplot2::coord_cartesian(ylim = yaxis)

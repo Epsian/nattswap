@@ -32,6 +32,8 @@ run_att_swap_sims = function(net_to_swap, attribute, swaps = 10000, sims = 50, c
   net_df$betweenness = sna::betweenness(net_to_swap, gmode="graph", diag=FALSE, cmode="undirected", ignore.eval=TRUE)
   net_df$norm_betweenness = net_df$betweenness / ((length(net_to_swap%v%"vertex.names") - 1) * (length(net_to_swap%v%"vertex.names") - 2) / 2)
   net_df$closeness = sna::closeness(net_to_swap, gmode="graph", diag=FALSE, cmode="undirected", ignore.eval=TRUE)
+  net_df$max_cohesion = igraph::max_cohesion(igraph::cohesive_blocks(intergraph::asIgraph(net_to_swap)))
+  net_df$nestedness = as.integer(unname(table(unlist(igraph::blocks((igraph::cohesive_blocks(intergraph::asIgraph(net_to_swap))))))))
 
   # run the simultions
   print("---------- Starting simulations.")

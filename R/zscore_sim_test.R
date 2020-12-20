@@ -20,6 +20,8 @@ nattswap_z = function(combined_att_swaps, means_table, swapped_att) {
   out_list["r_bet"] = mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "betweenness"])
   out_list["r_n_bet"] = mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "norm_betweenness"])
   out_list["r_closeness"] = mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "closeness"])
+  out_list["r_max_cohesion"] = mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "max_cohesion"])
+  out_list["r_nestedness"] = mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "nestedness"])
 
   # Simulated
   out_list["s_degree"] = mean(means_table$degree_mean_true)
@@ -27,6 +29,8 @@ nattswap_z = function(combined_att_swaps, means_table, swapped_att) {
   out_list["s_bet"] = mean(means_table$bet_mean_true)
   out_list["s_n_bet"] = mean(means_table$n_bet_mean_true)
   out_list["s_closeness"] = mean(means_table$closeness_mean_true)
+  out_list["s_max_cohesion"] = mean(means_table$max_cohesion_mean_true)
+  out_list["s_nestedness"] = mean(means_table$nestedness_mean_true)
 
   # Z = (Observed Mean - Mean of of random networks) /  standard deviation of random networks
   # Answer will be positive or negative and within +/-  Standard Deviations above or below the mean
@@ -37,6 +41,8 @@ nattswap_z = function(combined_att_swaps, means_table, swapped_att) {
   out_list["z_bet"] = (mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "betweenness"]) - mean(means_table$bet_mean_true)) / sd(means_table$bet_mean_true)
   out_list["z_n_bet"] = (mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "norm_betweenness"]) - mean(means_table$n_bet_mean_true)) / sd(means_table$n_bet_mean_true)
   out_list["z_closeness"] = (mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "closeness"]) - mean(means_table$closeness_mean_true)) / sd(means_table$closeness_mean_true)
+  out_list["z_max_cohesion"] = (mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "max_cohesion"]) - mean(means_table$max_cohesion_mean_true)) / sd(means_table$max_cohesion_mean_true)
+  out_list["z_nestedness"] = (mean(combined_att_swaps[combined_att_swaps[, swapped_att] == TRUE, "nestedness"]) - mean(means_table$nestedness_mean_true)) / sd(means_table$nestedness_mean_true)
 
   return(new("nattswap_z", out_list))
 }
@@ -47,7 +53,7 @@ setMethod("show", "nattswap_z", function(object) {
   cat("nattswap significance results\n\n")
 
   cat("Means for", object$swapped_att, "== TRUE in real network\n")
-  cat("\tdegree\t\t\teigenvector\t\tbetweenness\t\tnormalized betweenness\tcloseness\n")
+  cat("\tdegree\t\t\teigenvector\t\tbetweenness\t\tnormalized betweenness\tcloseness\tmax_cohesion\tnestedness\n")
   cat(
     "\t",
     object$r_degree,
@@ -59,6 +65,10 @@ setMethod("show", "nattswap_z", function(object) {
     object$r_n_bet,
     "\t\t",
     object$r_closeness,
+    "\t\t",
+    object$r_max_cohesion,
+    "\t\t",
+    object$r_nestedness,
     "\n"
   )
   cat("\n")
@@ -78,6 +88,10 @@ setMethod("show", "nattswap_z", function(object) {
     object$s_n_bet,
     "\t\t",
     object$s_closeness,
+    "\t\t",
+    object$s_max_cohesion,
+    "\t\t",
+    object$s_nestedness,
     "\n"
   )
   cat("\n")
@@ -97,6 +111,10 @@ setMethod("show", "nattswap_z", function(object) {
     object$z_n_bet,
     "\t\t",
     object$z_closeness,
+    "\t\t",
+    object$z_max_cohesion,
+    "\t\t",
+    object$z_nestedness,
     "\n"
   )
   cat("\n")

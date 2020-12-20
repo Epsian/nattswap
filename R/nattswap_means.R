@@ -105,6 +105,34 @@ nattswap_means = function(nattswap_long) {
     # get closeness sd for only swapped_att == FALSE
     means_table[means_table$sim_num == sim, "closeness_sd_false"] = sd(.working[.working[, ncol(.working)] == FALSE, "closeness"])
 
+    ## max cohesion
+
+    # get max cohesion mean for only swapped_att == TRUE
+    means_table[means_table$sim_num == sim, "max_cohesion_mean_true"] = mean(.working[.working[, ncol(.working)] == TRUE, "max_cohesion"])
+
+    # get max cohesion mean for only swapped_att == FALSE
+    means_table[means_table$sim_num == sim, "max_cohesion_mean_false"] = mean(.working[.working[, ncol(.working)] == FALSE, "max_cohesion"])
+
+    # get max cohesion sd for only swapped_att == TRUE
+    means_table[means_table$sim_num == sim, "max_cohesion_sd_true"] = sd(.working[.working[, ncol(.working)] == TRUE, "max_cohesion"])
+
+    # get max cohesion sd for only swapped_att == FALSE
+    means_table[means_table$sim_num == sim, "max_cohesion_sd_false"] = sd(.working[.working[, ncol(.working)] == FALSE, "max_cohesion"])
+
+    ## nestedness
+
+    # get max cohesion mean for only swapped_att == TRUE
+    means_table[means_table$sim_num == sim, "nestedness_mean_true"] = mean(.working[.working[, ncol(.working)] == TRUE, "nestedness"])
+
+    # get max cohesion mean for only swapped_att == FALSE
+    means_table[means_table$sim_num == sim, "nestedness_mean_false"] = mean(.working[.working[, ncol(.working)] == FALSE, "nestedness"])
+
+    # get max cohesion sd for only swapped_att == TRUE
+    means_table[means_table$sim_num == sim, "nestedness_sd_true"] = sd(.working[.working[, ncol(.working)] == TRUE, "nestedness"])
+
+    # get max cohesion sd for only swapped_att == FALSE
+    means_table[means_table$sim_num == sim, "nestedness_sd_false"] = sd(.working[.working[, ncol(.working)] == FALSE, "nestedness"])
+
   }
   return(means_table)
 }
