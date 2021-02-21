@@ -4,7 +4,7 @@
 
 ## Overview
 
-nattswap is a small package designed to create network simulations in R which randomly swap attributes or edges in a network. It has two main groups of functions, one for atributes and the other for edges.
+nattswap is a small package designed to create network simulations in R which randomly swap attributes or edges in a network. It has two main groups of functions, one for attributes and the other for edges.
 
 ### Attributes
 
@@ -30,6 +30,7 @@ devtools::install_github("epsian/nattswap")
 
 * Currently only works on networks with one component
 * Only works for undirected networks
+* Will always only return values for degree, eigenvector centrality, betweenness, normalized betweenness, closeness, max cohesion, and nestedness
 
 ## To Do
 
