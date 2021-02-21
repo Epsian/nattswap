@@ -24,7 +24,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_degree"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Degree", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_degree"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
     }
 
   if("evc" %in% metric_name | "all" %in% metric_name){
@@ -33,7 +33,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_evc"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Eigenvector Centrality", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_evc"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
     }
 
   if("closeness" %in% metric_name | "all" %in% metric_name){
@@ -42,7 +42,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_closeness"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Closeness", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_closeness"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
     }
 
   if("bet" %in% metric_name | "all" %in% metric_name){
@@ -51,7 +51,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_bet"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Betweenness", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_bet"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
     }
 
   if("n_bet" %in% metric_name | "all" %in% metric_name){
@@ -60,7 +60,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_n_bet"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Normalized Betweenness", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_n_bet"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
   }
 
   if("max_cohesion" %in% metric_name | "all" %in% metric_name){
@@ -69,7 +69,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_max_cohesion"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Max Cohesion", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_max_cohesion"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
   }
 
   if("nestedness" %in% metric_name | "all" %in% metric_name){
@@ -78,7 +78,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_nestedness"]])), color="black", linetype="dashed", size=1) +
       labs (x = "Mean Nestedness", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_nestedness"]], digits = 3))) +
-      ggplot2::theme(text=element_text(family= font_family))
+      ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
   }
 
   if(!all(is.na(yaxis))){
