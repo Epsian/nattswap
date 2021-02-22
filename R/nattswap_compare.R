@@ -1,7 +1,7 @@
 #' nattswap_compare
 #'
 #' @param get_att_swap_sig_results Result of \code{get_att_swap_sig}
-#' @param metric_name Character. A vector of "degree", "evc", "bet", "n_bet", or "closeness". Defualts to "all" which will display all metrics.
+#' @param metric_name Character. A vector of "degree", "evc", "bet", "n_bet", "closeness", "max_cohesion", or "nestedness". Defualts to "all" which will display all metrics.
 #' @param swapped_att Character. Name of swapped attribute.
 #' @param all_nrow How many rows do you want the plot to have?
 #' @param all_ncol How many columns do you want the plot to have?
@@ -22,7 +22,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
     plot_list[["degree"]] = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["means"]][, "degree_mean_true"])) +
       geom_histogram(color="black", fill="white", bins = 50) +
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_degree"]])), color="black", linetype="dashed", size=1) +
-      labs (x = "Mean Degree", y = "Frequency") +
+      labs (x = "Mean Degree Centrality", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_degree"]], digits = 3))) +
       ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
     }
@@ -49,7 +49,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
     plot_list[["bet"]] = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["means"]][, "bet_mean_true"])) +
       geom_histogram(color="black", fill="white", bins = 50) +
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_bet"]])), color="black", linetype="dashed", size=1) +
-      labs (x = "Mean Betweenness", y = "Frequency") +
+      labs (x = "Mean Betweenness Centrality", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_bet"]], digits = 3))) +
       ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
     }
@@ -58,7 +58,7 @@ nattswap_compare = function(get_att_swap_sig_results, metric_name = "all", swapp
     plot_list[["n_bet"]] = ggplot(get_att_swap_sig_results[["means"]], aes(x=get_att_swap_sig_results[["means"]][, "n_bet_mean_true"])) +
       geom_histogram(color="black", fill="white", bins = 50) +
       geom_vline((aes(xintercept=get_att_swap_sig_results[["z-report"]][["r_n_bet"]])), color="black", linetype="dashed", size=1) +
-      labs (x = "Mean Normalized Betweenness", y = "Frequency") +
+      labs (x = "Mean Normalized Betweenness Centrality", y = "Frequency") +
       ggplot2::labs(caption = paste0("Z-Score = ", round(get_att_swap_sig_results[["z-report"]][["z_n_bet"]], digits = 3))) +
       ggplot2::theme(text=element_text(family= font_family), plot.caption = element_text(size = 12))
   }
