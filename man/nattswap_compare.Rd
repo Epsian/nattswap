@@ -17,7 +17,7 @@ nattswap_compare(
 \arguments{
 \item{get_att_swap_sig_results}{Result of \code{get_att_swap_sig}}
 
-\item{metric_name}{Character. A vector of "degree", "evc", "bet", "n_bet", or "closeness". Defualts to "all" which will display all metrics.}
+\item{metric_name}{Character. A vector of "degree", "evc", "bet", "n_bet", "closeness", "max_cohesion", or "nestedness". Defualts to "all" which will display all metrics.}
 
 \item{swapped_att}{Character. Name of swapped attribute.}
 
