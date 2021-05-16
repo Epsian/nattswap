@@ -11,13 +11,15 @@ nattswap_compare(
   all_nrow = 1,
   all_ncol = NULL,
   font_family = NULL,
-  yaxis = c(NA, NA)
+  yaxis = c(NA, NA),
+  xaxis = NA,
+  bin_num = 50
 )
 }
 \arguments{
 \item{get_att_swap_sig_results}{Result of \code{get_att_swap_sig}}
 
-\item{metric_name}{Character. A vector of "degree", "evc", "bet", "n_bet", "closeness", "max_cohesion", or "nestedness". Defualts to "all" which will display all metrics.}
+\item{metric_name}{Character. A vector of "degree", "evc", "bet", "n_bet", "closeness", "max_cohesion", or "nestedness". Defaults to "all" which will display all metrics.}
 
 \item{swapped_att}{Character. Name of swapped attribute.}
 
@@ -28,6 +30,10 @@ nattswap_compare(
 \item{font_family}{Font family to use in plots.}
 
 \item{yaxis}{Vector of 2 integers. Lower and upper limit of y axis.}
+
+\item{xaxis}{List of with element names matching plot types \(e.g. degree\). List contains length 2 vectors specifying x axis limits for plot of that type.}
+
+\item{bin_num}{The number of bins you want in the histograms.}
 }
 \value{
 A ggplot2 plot showing real vs simulated means
