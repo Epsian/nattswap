@@ -8,6 +8,7 @@
 #' @param font_family Font family to use in plots.
 #' @param yaxis Vector of 2 integers. Lower and upper limit of y axis.
 #' @param xaxis List of with element names matching plot types \(e.g. degree\). List contains length 2 vectors specifying x axis limits for plot of that type.
+#' @param bin_num The number of bins you want in the histograms.
 #'
 #' @return A ggplot2 plot showing real vs simulated means
 #' @export
